@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LightWeight Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="heading">
+            <img src="shakilkhanlogowhite2.png" alt="">
+        </div>
+
+        <div class="lis">
+            <ul>
+                <li><a href="index.html" class="documentation">Documentations</a></li>
+                <li><a href="database.html">Database Heplers &rarr;</a></li>
+                <li><a href="libraries.html">Libraries &rarr;</a></li>
+                <li><a href="helpers.html">Helpers &rarr;</a></li>
+                <li><a href="htaccess.html">.htaccess configuration &rarr;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="contents">
+        <h2>Database</h2>
+        <div class="content">
+            <div class="important-text">
+                <h5 class="h5">Important</h5>
+            <p>Before using the database first of all you need to create the database connection, so to create the database connection it's very easy Goto config/config.php file and put your database informations in the config.php file</p>
+        </div>
+
+            <div class="code">
+                <pre><code class="language-php line-numbers">
+&lt;?php 
+
+$database = [
+
+    /*
+        * Add your database informations
+    */ 
+
+    &#039;host&#039;      =&gt; &#039;&#039;,
+    &#039;username&#039;  =&gt; &#039;&#039;,
+    &#039;database&#039;  =&gt; &#039;&#039;,
+    &#039;password&#039;  =&gt; &#039;&#039;
+
+
+];
+             </code></pre>
+            </div>
+            <p>after creating the database connection now you can communicate with database</p>
+                <h3 class="heading3">Query Helper</h3>
+                <p>if you want to insert/update/delete/select data from database then you can use Query helper </p>
+            <div id="code">
+                <pre><code class="language-php line-numbers">
+                &lt;?php 
+
+                $this-&gt;Query(&#039;Your query&#039;);
+                //insert query
+                $this-&gt;Query(&quot;INSERT INTO table (column1, column2) VALUES (?,?)&quot;, [$value1, $value2]);
+
+                //select query
+                $this-&gt;Query(&quot;SELECT * FROM table)&quot;);
+
+                //select where query
+                $this-&gt;Query(&quot;SELECT * FROM table WHERE column = ?&quot;, [$value]);
+
+                //delete query
+                $this-&gt;Query(&quot;DELETE FROM table WHERE column = ?&quot;, [$value]);
+
+                //update query
+                $this-&gt;Query(&quot;UPDATE table SET column = ?, column2 = ? WHERE column = ?&quot;, [$value1, $value2, $value3]);
+
+                 ?&gt;
+             </code>
+         </pre>
+            </div>
+
+            <h3 class="heading3">Select Helper</h3>
+                <p>Select helper only select data from the database table, it's takes two paramters the first parameter is the table which is important and the second parameters is optional for example if you want to pass the where condition then pass the where data in the second parameter like ['id' => 5] </p>
+            <div id="code">
+                <pre><code class="language-php line-numbers">
+                &lt;?php 
+
+                $this-&gt;Select(&#039;Table name&#039;, &#039;options&#039;);
+                //produces 
+                SELECT * FROM table_name
+                 ?&gt;
+             </code></pre>
+            </div>
+
+            <h3 class="heading3">Select_Where Helper</h3>
+                <p>Select_Where helper is simply produce "SELECT * FROM table_name WHERE id = 5" query  </p>
+            <div id="code">
+                <pre><code class="language-php line-numbers">
+                &lt;?php 
+
+                $this-&gt;Select_Where(&#039;Table name&#039;, &#039;Where data&#039;);
+                //produces 
+                SELECT * FROM table_name WHERE id = 5
+                SEELCT * FROM table_name WHERE email = exmaple@gmail.com
+                 ?&gt;
+             </code></pre>
+            </div>
+
+            <h3 class="heading3">Delete Helper</h3>
+                <p>Delete helper produce the delete query for example "DELETE FROM table_name WHERE id = 5"</p>
+            <div id="code">
+                <pre><code class="language-php line-numbers">
+                &lt;?php 
+
+                $this-&gt;Delete(&#039;Table name&#039;, &#039;Where Data&#039;);
+                //produces 
+                DELETE FROM table_name WHERE id = 5;
+                DELETE FROM table_name WHERE email = example@gmail.com
+                 ?&gt;
+             </code></pre>
+            </div>
+
+            <h3 class="heading3">Update Helper</h3>
+                <p>Update helper produce the update query, Its takes three parameters the first parameter is the table name second parameter is the SET data and third parameter is the where condition below is the query see the example </p>
+            <div id="code">
+                <pre><code class="language-php line-numbers">
+               &lt;?php 
+
+                $this-&gt;Update(&#039;Table name&#039;, &#039;Set data &amp; columns&#039;, &#039;options&#039;);
+                //produces 
+                UPDATE table_name SET name = &#039;umer&#039;, email = &#039;umer@gmail.com&#039; WHERE id = 5;
+                 ?&gt;
+             </code></pre>
+            </div>
+
+            <h3 class="heading3">Insert Helper</h3>
+                <p>Insert helper produce the insert query it's takes two parameters the first parameter is the table name and the second parameter is the insert data along with columns </p>
+            <div id="code">
+                <pre><code class="language-php line-numbers">
+                &lt;?php 
+
+                $this-&gt;Insert(&#039;Table name&#039;, &#039;Columns &amp; Values&#039;);
+                //produces 
+                INSERT INTO table_name (column1, column2, column3) VALUES (&#039;value1&#039;,&#039;value2&#039;,&#039;value3&#039;);
+                 ?&gt;
+             </code></pre>
+            </div>
+
+            <h3 class="heading3">Join Helper</h3>
+                <p>Join helper produce the join query it's takes four parameters the first parameter is the first table name, the second parameter is the second table name and third parameter is the matching condition and fourth parameter is optional which is the join name like LEFT JOIN, RIGHT JOIN by default framework will run the INNER JOIN</p>
+            <div id="code">
+                <pre><code class="language-php line-numbers">
+                &lt;?php 
+
+                $this-&gt;Join(&#039;First Table&#039;, &#039;Second Table&#039;, &#039;Matching Condition&#039; &#039;Join Name&#039;);
+                //produces
+                SELECT * FROM First_table INNER JOIN Second_table ON First_table.id = Second_table.id
+                SELECT * FROM First_table LEFT JOIN Second_table ON First_table.id = Second_table.id
+                SELECT * FROM First_table RIGHT JOIN Second_table ON First_table.id = Second_table.id
+                 ?&gt;
+             </code></pre>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="prism.js"></script>
+</body>
+</html>

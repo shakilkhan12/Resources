@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LightWeight Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="heading">
+            <img src="shakilkhanlogowhite2.png" alt="">
+        </div>
+
+        <div class="lis">
+            <ul>
+                <li><a href="index.html" class="documentation">Documentations</a></li>
+                <li><a href="database.html">Database Heplers &rarr;</a></li>
+                <li><a href="libraries.html">Libraries &rarr;</a></li>
+                <li><a href="helpers.html">Helpers &rarr;</a></li>
+                <li><a href="htaccess.html">.htaccess configuration &rarr;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="contents">
+        <h2>URL Helpers</h2>
+        <div class="content">
+            
+            Before using the URL helper first you need to load the URL helper in the controller and you can also load from the autoload file simple goto config folder and then click on autoload.php file.
+            <div class="code">
+                <pre><code class="language-php line-numbers">
+&lt;?php 
+/*
+    * autoload helpers
+*/ 
+$autoload = [
+   &#039;helpers&#039; =&gt; [&#039;url&#039;]
+];
+ ?&gt;
+                </code>
+            </pre>
+        </div>
+        <h3 class="heading3">link_css helper</h3>
+        <p>link_css helper produce the html external link tag</p>
+        <div class="code">
+          <pre><code class="language-php line-numbers">&lt;?php echo link_css(&quot;assets/css/style.css&quot;);
+
+//produce 
+&lt;link rel=&quot;stylesheet&quot; href=&quot;assets/css/style.css&quot;>
+?&gt;
+          </code></pre>  
+        </div>
+
+        <h3 class="heading3">link_js helper</h3>
+        <p>link_js helper produce the html script tag</p>
+        <div class="code">
+            <pre><code class="language-php line-numbers">&lt;?php echo link_js(&quot;assets/js/app.js&quot;);
+
+//produce 
+&lt;script src=&quot;assets/js/app.js&quot;>&lt;/script>
+?&gt;</code></pre>
+        </div>
+
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="prism.js"></script>
+</body>
+</html>

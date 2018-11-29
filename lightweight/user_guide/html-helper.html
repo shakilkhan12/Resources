@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LightWeight Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="heading">
+            <img src="shakilkhanlogowhite2.png" alt="">
+        </div>
+
+        <div class="lis">
+            <ul>
+                <li><a href="index.html" class="documentation">Documentations</a></li>
+                <li><a href="database.html">Database Heplers &rarr;</a></li>
+                <li><a href="libraries.html">Libraries &rarr;</a></li>
+                <li><a href="helpers.html">Helpers &rarr;</a></li>
+                <li><a href="htaccess.html">.htaccess configuration &rarr;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="contents">
+        <h2>HTML Helper</h2>
+        <div class="content">
+            
+            Before using the HTML helper first you need to load the HTML helper in the controller and you can also load from the autoload file simple goto config folder and then click on autoload.php file.
+            <div class="code">
+                <pre><code class="language-php line-numbers">
+&lt;?php 
+/*
+    * autoload helpers
+*/ 
+$autoload = [
+   &#039;helpers&#039; =&gt; [&#039;html&#039;]
+];
+ ?&gt;
+                </code>
+            </pre>
+        </div>
+        <h3 class="heading3">anchor helper</h3>
+        <p>anchor helper produce the html href link</p>
+        <div class="code">
+          <pre><code class="language-php line-numbers">&lt;?php echo anchor(url, value,[&quot;class&quot=&quot;&quot,&quot;id&quot=&quot;&quot]);
+
+//produce 
+&lt;a href=&quot;https://example.com/5&quot; class=&quot;&quot; id=&quot;&quot;&gt;value&lt;/a&gt;
+
+?&gt;
+          </code></pre>  
+        </div>
+
+
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="prism.js"></script>
+</body>
+</html>

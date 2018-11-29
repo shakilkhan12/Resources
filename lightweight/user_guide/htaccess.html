@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LightWeight Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="heading">
+            <img src="shakilkhanlogowhite2.png" alt="">
+        </div>
+
+        <div class="lis">
+            <ul>
+                <li><a href="index.html" class="documentation">Documentations</a></li>
+                <li><a href="database.html">Database Heplers &rarr;</a></li>
+                <li><a href="libraries.html">Libraries &rarr;</a></li>
+                <li><a href="helpers.html">Helpers &rarr;</a></li>
+                <li><a href="htaccess.html">.htaccess configuration &rarr;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="contents">
+        <h2>Htaccess files</h2>
+        <div class="content">
+            <div class="important-text">
+            <h5 class="h5">What is .htaccess</h5>
+            <p>htaccess is a configuration file for use on web servers running the Apache Web Server software. ... These .htaccess files can be used to alter the configuration of the Apache Web Server software to enable/disable additional functionality and features that the Apache Web Server software has to offer</p>
+        </div>
+            <h5 class="h5">htaccess file for main directory</h5>
+            <p>create new .htaccess file in the main directory and copy the below code and paste there</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+  RewriteRule ^$ public/ [L]
+  RewriteRule  (.*) public/$1 [L]
+&lt;/IfModule&gt;</code></pre>
+            </div>
+        <h5 class="h5">htaccess file for root directory</h5>
+        <p>Create .htaccess file in the public folder and copy the below code and paste code in the .htaccess file and also add your folder name</p>
+        <div class="code">
+            <pre><code class="language-php line-numbers">&lt;IfModule mod_rewrite.c&gt;
+  Options -Multiviews
+  RewriteEngine On
+  RewriteBase /Your Folder Name/public
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule  ^(.+)$ index.php?url=$1 [QSA,L]
+&lt;/IfModule&gt;</code></pre>
+        </div>
+
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="prism.js"></script>
+</body>
+</html>

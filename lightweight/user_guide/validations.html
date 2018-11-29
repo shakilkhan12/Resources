@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LightWeight Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="heading">
+            <img src="shakilkhanlogowhite2.png" alt="">
+        </div>
+
+        <div class="lis">
+            <ul>
+                <li><a href="index.html" class="documentation">Documentations</a></li>
+                <li><a href="database.html">Database Heplers &rarr;</a></li>
+                <li><a href="libraries.html">Libraries &rarr;</a></li>
+                <li><a href="helpers.html">Helpers &rarr;</a></li>
+                <li><a href="htaccess.html">.htaccess configuration &rarr;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="contents">
+        <h2>Form Validation Library</h2>
+        <div class="content">
+            
+            <p>Using any lightweight framework library you don't need to load the library first you can use the lightweight framework library without loading it</p>
+            <h5 class="h5">Form Validation Library usage</h5>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;Rules&#039;); ?&gt;</code></pre>
+            </div>
+            <h5 class="h5">Validation Rules</h5>
+            <ul class="doc-ul">
+                <li>1- required</li>
+                <li>2- not_int</li>
+                <li>3- int</li>
+                <li>4- min_len</li>
+                <li>5- max_len</li>
+                <li>6- confirm</li>
+                <li>7- unique</li>
+                
+            </ul>
+
+            <h5 class="h5">Required rule</h5>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;required&#039;); ?&gt;</code></pre>
+            </div>
+
+            <h5 class="h5">not_int rule</h5>
+            <p>not_int rule means value must be alphabetic character not be integer</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;not_int&#039;); ?&gt;</code></pre>
+            </div>
+
+             <h5 class="h5">int rule</h5>
+             <p>int rule means value must be integer</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;int&#039;); ?&gt;</code></pre>
+            </div>
+
+            <h5 class="h5">min_len rule</h5>
+            <p>after the min_len rule add pipe sign and after immediately add the min length value</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;min_len|3&#039;); ?&gt;</code></pre>
+            </div>
+
+            <h5 class="h5">max_len rule</h5>
+            <p>after the max_len rule add pipe sign and after immediately add the max length value</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;max_len|8&#039;); ?&gt;</code></pre>
+            </div>
+
+            <h5 class="h5">confirm rule</h5>
+            <p>Confirm rule you can use only for password confirm to confirm the two password fields like password field and confirm password field. after the confirm rule add the pipe sign and after immediately add the password field name</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;confirm|password&#039;); ?&gt;</code></pre>
+            </div>
+
+            <h5 class="h5">unique rule</h5>
+            <p>unique rule means to check the email availability in the database table it's available or not in the table, so first add the rule name after the pipe sign and finally add the database table name</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;unique|users&#039;); ?&gt;</code></pre>
+            </div>
+
+            <h5 class="h5">using all rules togather</h5>
+            <p>below is the example how you can use rules togather</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;required|min_len|4|&#039;); ?&gt;</code></pre>
+            </div>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;required|max_len|8|not-int&#039;); ?&gt;</code></pre>
+            </div>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;required|confirm|password&#039;); ?&gt;</code></pre>
+            </div>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php $this->validation(&#039;input_field_name&#039;,&#039;Label&#039;,&#039;required|unique|users&#039;); ?&gt;</code></pre>
+            </div>
+
+            <h5 class="h5">Dispaly errors in the view</h5>
+            <p>First of all in the controller call run(); method if it's true that's means you don't have any error</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php if($this->run()){
+//Success no error
+
+} else {
+//You have an errors
+$this->view(&#039;user_view&#039;);
+ } ?&gt;</code></pre>
+            </div>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;!DOCTYPE html &gt;
+&lt;html lang=&#039;en&#039;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#039;UTF-8&#039;&gt;
+    &lt;title&gt;User View&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+         &lt;h1&gt;User View&lt;/h1&gt;
+       
+           &lt;?php echo form_open(&quot;controller/method&quot;, &quot;post&quot;, [&#039;class&#039; =&gt; &#039;form-class&#039;]); ?&gt;
+          
+
+           &lt;?php echo form_input([&#039;type&#039; =&gt; &#039;text&#039;,&#039;name&#039; =&gt; &#039;full_name&#039;, &#039;id&#039; =&gt; &#039;input-id&#039;, &#039;class&#039; =&gt; &#039;form-control&#039;, &#039;placeholder&#039; =&gt; &#039;Enter Full Name&#039;, &#039;value&#039; =&gt; $this-&gt;set_value(&#039;full_name&#039;)]); ?&gt; &lt;br&gt;
+           &lt;?php if(!empty($this-&gt;errors[&#039;full_name&#039;])): ?&gt;
+             &lt;?php echo $this-&gt;errors[&#039;full_name&#039;]; ?&gt;
+           &lt;?php endif; ?&gt;&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+            </div>
+
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="prism.js"></script>
+</body>
+</html>
