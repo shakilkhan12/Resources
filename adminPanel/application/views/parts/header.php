@@ -1,0 +1,1 @@
+<?php echo link_css("assets/css/style.css"); ?>

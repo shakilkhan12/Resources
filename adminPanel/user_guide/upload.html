@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LightWeight Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="heading">
+            <img src="sidebar-logo.png" alt="">
+        </div>
+
+        <div class="lis">
+            <ul>
+                <li><a href="index.html" class="documentation">Documentations</a></li>
+                <li><a href="database.html">Database Heplers &rarr;</a></li>
+                <li><a href="libraries.html">Libraries &rarr;</a></li>
+                <li><a href="helpers.html">Helpers &rarr;</a></li>
+                <li><a href="htaccess.html">.htaccess configuration &rarr;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="contents">
+        <h2>Files Upload Library</h2>
+        <div class="content">
+            
+            <p>Files upload library, upload files/images and do the files/images validations</p>
+            <h5 class="h5">Files Upload Library Usage</h5>
+            <p>just call the file method and pass them array</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php 
+$data = [
+&#039;file_name&#039; => &#039;image&#039;,
+&#039;allowed_extensions&#039; => &#039;jpg|png|gif&#039;,
+//&#039;allowed_extensions&#039; => &#039;pdf|docx&#039;,
+&#039;upload_path&#039; => &#039;images/&#039;,
+&#039;label&#039; => &#039;Image&#039;
+];
+$this->file($data); ?&gt;</code></pre>
+            </div>
+            <p>Display file upload error, first of all in the controller call run_file() method if this is true that's means you don't have any errro if false that's means you have an error</p>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;?php
+if($this->file_run()){
+   //Upload success   
+} else {
+    //You have an error
+    $this->view(&#039;user_view&#039;); 
+}
+?&gt;</code></pre>
+            </div>
+
+            <h5 class="h5">Now display error in the view</h5>
+            <div class="code">
+                <pre><code class="language-php line-numbers">&lt;!DOCTYPE html &gt;
+&lt;html lang=&#039;en&#039;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#039;UTF-8&#039;&gt;
+    &lt;title&gt;User View&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+         &lt;h1&gt;User View&lt;/h1&gt;
+       
+           &lt;?php echo form_multipart(&quot;controller/method&quot;, &quot;post&quot;, [&#039;class&#039; =&gt; &#039;form-class&#039;]); ?&gt;
+           &lt;?php echo form_input([&#039;type&#039; =&gt; &#039;file&#039;,&#039;name&#039; =&gt; &#039;image&#039;, &#039;id&#039; =&gt; &#039;input-id&#039;, &#039;class&#039; =&gt; &#039;form-control&#039;]); ?&gt; &lt;br&gt;
+           &lt;?php if(!empty($this-&gt;file_errors[&#039;image&#039;])): ?&gt;
+             &lt;?php echo $this-&gt;file_errors[&#039;image&#039;]; ?&gt;
+           &lt;?php endif; ?&gt;&lt;br&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+            </div>
+           
+            
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="prism.js"></script>
+</body>
+</html>

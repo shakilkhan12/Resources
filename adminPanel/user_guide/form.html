@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LightWeight Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <div class="heading">
+            <img src="shakilkhanlogowhite2.png" alt="">
+        </div>
+
+        <div class="lis">
+            <ul>
+                <li><a href="index.html" class="documentation">Documentations</a></li>
+                <li><a href="database.html">Database Heplers &rarr;</a></li>
+                <li><a href="libraries.html">Libraries &rarr;</a></li>
+                <li><a href="helpers.html">Helpers &rarr;</a></li>
+                <li><a href="htaccess.html">.htaccess configuration &rarr;</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="contents">
+        <h2>Form Helpers</h2>
+        <div class="content">
+            
+            Before using the form helper first you need to load the form helper in the controller and you can also load from the autoload file simple goto config folder and then click on autoload.php file.
+            <div class="code">
+                <pre><code class="language-php line-numbers">
+&lt;?php 
+/*
+    * autoload helpers
+*/ 
+$autoload = [
+   &#039;helpers&#039; =&gt; [&#039;form&#039;]
+];
+ ?&gt;
+                </code>
+            </pre>
+        </div>
+        <h3 class="heading3">form_open</h3>
+        <p>form open helper just produce the html form opening tag</p>
+        <div class="code">
+          <pre><code class="language-php line-numbers">&lt;?php echo form_open(action, method, [&quot;class&quot = &quot;&quot &quot;id&quot = &quot;&quot]);
+             
+            //produces 
+            &lt;form action=&quot;&quot; method=&quot;&quot; class=&quot;&quot; id=&quot;&quot;&gt;
+?&gt;
+          </code></pre>  
+        </div>
+
+        <h3 class="heading3">form_close</h3>
+        <p>form_close helper produce the html form closing tag</p>
+        <div class="code">
+            <pre><code class="language-php line-numbers">&lt;?php echo form_close();
+//produces
+&lt;/form&gt;
+ ?&gt;
+          </code></pre> 
+        </div>
+        <h3 class="heading3">form_input</h3>
+        <p>form_input helper produce the html input field like text input field, email input field, password input field and file input field</p>
+        <div class="code">
+            <pre><code class="language-php line-numbers">&lt;?php echo form_input([&#039;type&#039; =&gt; &#039;text&#039;,&#039;name&#039; =&gt; &#039;full_name&#039;, &#039;id&#039; =&gt; &#039;input-id&#039;, &#039;class&#039; =&gt; &#039;form-control&#039;, &#039;placeholder&#039; =&gt; &#039;Enter Full Name&#039;, &#039;value&#039; =&gt;&#039;&#039;]);
+
+//produces
+&lt;input type=&quot;text&quot; name=&quot;full_name&quot; id=&quot;input-id&quot; class=&quot;form-control&quot; placeholder=&quot;Enter Full Name&quot; value=&quot;&quot;&gt;
+
+&lt;?php echo form_input([&#039;type&#039; =&gt; &#039;email&#039;,&#039;name&#039; =&gt; &#039;email&#039;, &#039;id&#039; =&gt; &#039;input-id&#039;, &#039;class&#039; =&gt; &#039;form-control&#039;, &#039;placeholder&#039; =&gt; &#039;Enter Email&#039;, &#039;value&#039; =&gt;&#039;&#039;]);
+
+//produces
+&lt;input type=&quot;email&quot; name=&quot;email&quot; id=&quot;input-id&quot; class=&quot;form-control&quot; placeholder=&quot;Enter Email&quot; value=&quot;&quot;&gt;
+
+&lt;?php echo form_input([&#039;type&#039; =&gt; &#039;password&#039;,&#039;name&#039; =&gt; &#039;password&#039;, &#039;id&#039; =&gt; &#039;input-id&#039;, &#039;class&#039; =&gt; &#039;form-control&#039;, &#039;placeholder&#039; =&gt; &#039;Enter Password&#039;, &#039;value&#039; =&gt;&#039;&#039;]);
+
+//produces
+&lt;input type=&quot;password&quot; name=&quot;password&quot; id=&quot;input-id&quot; class=&quot;form-control&quot; placeholder=&quot;Enter Password&quot; value=&quot;&quot;&gt;
+
+&lt;?php echo form_input([&#039;type&#039; =&gt; &#039;file&#039;,&#039;name&#039; =&gt; &#039;file&#039;, &#039;id&#039; =&gt; &#039;input-id&#039;, &#039;class&#039; =&gt; &#039;form-control&#039;]);
+
+//produces
+&lt;input type=&quot;file&quot; name=&quot;file&quot; id=&quot;input-id&quot; class=&quot;form-control&quot;&gt;
+
+ ?&gt;</code></pre>
+        </div>
+        <h3 class="heading3">form_multipart</h3>
+        <p>form_multipart helper produce the html form opening tag along with enctype attribute</p>
+        <div class="code">
+            <pre><code class="language-php line-numbers">&lt;?php echo form_multipart(action, method, [&quot;class&quot = &quot;&quot &quot;id&quot = &quot;&quot]);
+
+//produce
+&lt;form action=&quot;&quot; method=&quot;&quot; class=&quot;&quot; id=&quot;&quot; enctype=&quot;multipart/form-data&quot;&gt; 
+
+ ?&gt;</code></pre>
+        </div>
+        <h3 class="heading3">form_button</h3>
+        <p>form_button helper proudce the html normal button bellow is the code</p>
+        <div class="code">
+            <pre><code class="language-php line-numbers">&lt;?php echo form_button([&quot;name&quot; =&gt; &quot;my-btn&quot;, &quot;class&quot; =&gt; &quot;btn-default&quot;, &quot;id&quot; =&gt; &quot;btn-id&quot;, &quot;value&quot; =&gt; &quot;Save&quot;]);
+
+//produce 
+&lt;button type=&quot;button&quot; name=&quot;my-btn&quot; class=&quot;btn-default&quot; id=&quot;btn-id&quot;&gt;Save&lt;/button&gt;
+
+
+ ?&gt;</code></pre>
+        </div>
+        <h3 class="heading3">form_submit</h3>
+        <p>form_submit helper produce the html submit button</p>
+        <div class="code">
+            <pre><code class="language-php line-numbers">&lt;?php echo form_submit([&quot;name&quot; =&gt; &quot;my-btn&quot;, &quot;class&quot; =&gt; &quot;btn-default&quot;, &quot;id&quot; =&gt; &quot;btn-id&quot;, &quot;value&quot; =&gt; &quot;Save&quot;]);
+
+//produce 
+&lt;input type=&quot;submit&quot; name=&quot;my-btn&quot; class=&quot;btn-default&quot; id=&quot;btn-id&quot; value=&quot;Save&quot;&gt;
+
+
+ ?&gt;</code></pre>
+        </div>
+
+
+            </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="prism.js"></script>
+</body>
+</html>
