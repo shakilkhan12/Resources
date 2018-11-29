@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User dashboard</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500" rel="stylesheet"> 
+</head>
+<body>
+  
+ <nav>
+    <ul>
+        <li><a href="#" class="btn-outline">logout</a></li>
+        <li><a href="#"><span class="hember">&#9776;</span></a></li>
+    </ul> 
+ </nav><!-- close nav -->
+
+ <div class="layout">
+       <div class="sidebar">
+           <ul>
+               <li><a href="#"><span class="profile"><img src="assets/images/2.jpg" alt="not found" class="profile-img"></span></a></li>
+               <li><a href="#"><span class="icon">&#9775;</span> Shakil Khan</a></li>
+               <li><a href="#"><span class="icon">&#9851;</span> Change Picture</a></li>
+               <li><a href="#"><span class="icon">&#9852;</span> Change Password</a></li>
+               <li><a href="#"><span class="icon">&#9728;</span> Change Name</a></li>
+           </ul>
+       </div><!-- close sidebar -->
+       <div class="contents">
+           <div class="content">
+             <h2 class="heading-thin">Change Picture</h2>
+             <form action="" class="m-20">
+               <div class="group">
+                <label for="myImage" id="mylabel"></label>
+                 <input type="file" name="" id="myImage">
+               </div><!-- close group -->
+             
+               <div class="group m-20">
+                 <input type="submit" value="Update Picture &rarr;" class="btn-default">
+                 <span class="ml-20">
+                 <input type="reset" value="Reset &larr;" class="btn-white">
+               </span>
+               </div><!-- close group -->
+             </form><!-- close form -->
+             
+           </div><!-- close content -->
+       </div><!-- close contents -->
+ </div><!-- close layout -->
+ 
+ <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+ <script type="text/javascript">
+   
+   $(document).ready(function(){
+    $(".hember").click(function(){
+      $(".sidebar").toggle();
+    })
+   })
+
+ </script>
+ <script type="text/javascript">
+   
+   let image = document.getElementById("myImage");
+   let label = document.getElementById("mylabel");
+       image.addEventListener("change", function(){
+        let imageName = image.value;
+        let onlyName = imageName.split("\\");
+            label.innerText = onlyName[2];
+        
+       });
+ </script>
+</body>
+</html>
