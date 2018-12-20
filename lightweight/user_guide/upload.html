@@ -48,7 +48,7 @@ $this->file($data); ?&gt;</code></pre>
             <div class="code">
                 <pre><code class="language-php line-numbers">&lt;?php
 if($this->file_run()){
-   //Upload success   
+   print_r($this->file_data['file_name']);    
 } else {
     //You have an error
     $this->view(&#039;user_view&#039;); 

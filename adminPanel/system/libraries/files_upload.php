@@ -1,5 +1,4 @@
 <?php 
-
 /**
  * Files upload library
  */

@@ -1,5 +1,4 @@
 <?php 
-
 trait form_validation {
 
     public $errors = [];
@@ -176,9 +175,19 @@ trait form_validation {
 
     public function set_value($field_name){
         if($_SERVER['REQUEST_METHOD'] == "POST" || $_SERVER['REQUEST_METHOD'] == "post"){
-            return $_POST[$field_name];
+            if(isset($_POST[$field_name])){
+                return $_POST[$field_name];
+            } else {
+                return false;
+            }
+            
         } else if($_SERVER['REQUEST_METHOD'] == "GET" || $_SERVER['REQUEST_METHOD'] == "get") {
-           return $_GET[$field_name];
+            if(isset($_GET[$field_name])){
+               return $_GET[$field_name];
+            } else {
+                return false;
+            }
+           
         }
 
     }

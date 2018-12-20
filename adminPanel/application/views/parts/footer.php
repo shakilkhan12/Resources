@@ -1,4 +1,4 @@
- <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+ <?php echo link_js("assets/js/jquery.min.js"); ?>
  <script type="text/javascript">
    
    $(document).ready(function(){

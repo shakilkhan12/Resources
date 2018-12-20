@@ -124,14 +124,14 @@ function form_button($fields){
         $value = null;
     }
 
-    return '<button type="button" class="'.$class.'" id="'.$id.'" name="'.$name.'">'.$value.'</button>';
+    return '<input type="button" class="'.$class.'" id="'.$id.'" name="'.$name.'" value="'.$value.'">';
 }
 
 /*
     * Form opening helper
 */ 
 
-function form_open($action, $method, $options = []){
+function form_open($action = "", $method = "", $options = []){
 
     if(array_key_exists("class", $options)){
         $class = $options['class'];
